@@ -1,0 +1,11 @@
+#!/usr/bin/env perl
+use warnings;
+use strict;
+
+my $instruction = <<HERE
+Go to System->Administration->Hardware Drivers and
+check the box to enable the restricted drivers
+for your NVIDIA card if the option is provided.
+    HERE;
+
+print $instruction;
