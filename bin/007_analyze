@@ -5,7 +5,14 @@ use strict;
 open ( my $datafile, '>', '007_datafile.txt' ) or die "Unable to open 030_datafile for appending";
 
 &uname;
+&asound;
 &lspci;
+
+sub asound {
+    my $asound = `cat /proc/asound/version`;
+    print $datafile "Output from cat /proc/asound/version .........................\n";
+    print $datafile $asound, "\n";
+}
 
 sub uname {
     my $kernel_release = `uname -r`;
