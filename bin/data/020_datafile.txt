@@ -1,9 +1,16 @@
+Fri Sep 24 10:01:12 PDT 2010
 Output from uname -r ................................
 2.6.32-21-generic
 
 Output from cat /proc/asound/version .........................
 Advanced Linux Sound Architecture Driver Version 1.0.21.
 
+
+Output from sudo aplay -l ................................
+**** List of PLAYBACK Hardware Devices ****
+card 1: default [USB PnP Sound Device          ], device 0: USB Audio [USB Audio]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
 
 Output from lspci ................................
 00:00.0 Host bridge: Intel Corporation N10 Family DMI Bridge (rev 02)
@@ -23,3 +30,51 @@ Output from lspci ................................
 01:00.1 Audio device: nVidia Corporation High Definition Audio Controller (rev a1)
 02:00.0 Ethernet controller: Realtek Semiconductor Co., Ltd. RTL8111/8168B PCI Express Gigabit Ethernet controller (rev 03)
 03:00.0 Network controller: Atheros Communications Inc. AR9285 Wireless Network Adapter (PCI-Express) (rev 01)
+
+Output from lsmod ................................
+Module                  Size  Used by
+lirc_streamzap          9548  0 
+lirc_dev               11302  1 lirc_streamzap
+arc4                    1473  2 
+snd_hda_intel          25645  0 
+snd_hda_codec          85727  1 snd_hda_intel
+snd_usb_audio          92747  0 
+snd_pcm_oss            41394  0 
+ath9k                 328829  0 
+snd_mixer_oss          16299  1 snd_pcm_oss
+mac80211              238128  1 ath9k
+ath                     9723  1 ath9k
+snd_pcm                87850  4 snd_hda_intel,snd_hda_codec,snd_usb_audio,snd_pcm_oss
+snd_seq_dummy           1782  0 
+snd_usb_lib            18978  1 snd_usb_audio
+snd_hwdep               6924  2 snd_hda_codec,snd_usb_audio
+snd_seq_oss            31219  0 
+snd_seq_midi            5829  0 
+snd_rawmidi            23388  2 snd_usb_lib,snd_seq_midi
+snd_seq_midi_event      7267  2 snd_seq_oss,snd_seq_midi
+snd_seq                57417  6 snd_seq_dummy,snd_seq_oss,snd_seq_midi,snd_seq_midi_event
+snd_timer              23553  2 snd_pcm,snd_seq
+snd_seq_device          6824  5 snd_seq_dummy,snd_seq_oss,snd_seq_midi,snd_rawmidi,snd_seq
+snd                    70978  12 snd_hda_intel,snd_hda_codec,snd_usb_audio,snd_pcm_oss,snd_mixer_oss,snd_pcm,snd_hwdep,snd_seq_oss,snd_rawmidi,snd_seq,snd_timer,snd_seq_device
+fbcon                  39270  71 
+tileblit                2487  1 fbcon
+font                    8053  1 fbcon
+bitblit                 5811  1 fbcon
+softcursor              1565  1 bitblit
+joydev                 11072  0 
+cfg80211              148386  3 ath9k,mac80211,ath
+soundcore               8052  1 snd
+psmouse                64608  0 
+serio_raw               4918  0 
+nvidia              10799466  28 
+snd_page_alloc          8500  2 snd_hda_intel,snd_pcm
+led_class               3732  1 ath9k
+intel_agp              29225  0 
+vga16fb                12757  1 
+vgastate                9857  1 vga16fb
+lp                      9336  0 
+parport                37160  1 lp
+usbhid                 40988  0 
+hid                    83376  1 usbhid
+r8169                  39554  0 
+mii                     5237  1 r8169

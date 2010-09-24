@@ -3,12 +3,13 @@ use warnings;
 use strict;
 
 open ( my $datafile, '>', 'data/020_datafile.txt' ) or die "Unable to open data/020_datafile for appending";
-print $datafile, `date`;
+print $datafile `date`;
 
 &uname;
 &asound;
-&lspci;
 &devices;
+&lspci;
+&lsmod;
 
 sub asound {
     my $asound = `cat /proc/asound/version`;
@@ -30,10 +31,16 @@ sub lspci {
     print $datafile $lspci;
 }
 
+sub lsmod {
+    my $lsmod = `lsmod`;
+    print $datafile "\nOutput from lsmod ................................\n";
+    print $datafile $lsmod;
+}
+
 sub devices {
     # chomp( my $lspci_bin = `which lspci` );
     # print "------- $lspci_bin ----\n";
     my $alsa_devices = `sudo aplay -l`;
     print $datafile "\nOutput from sudo aplay -l ................................\n";
-    print $datafile $lspci;
+    print $datafile $alsa_devices;
 }
