@@ -2,7 +2,7 @@
 use warnings;
 use strict;
 
-open ( my $datafile, '>>', '030_datafile.txt' ) or die "Unable to open 030_datafile for appending";
+open ( my $datafile, '>>', '050_datafile.txt' ) or die "Unable to open 030_datafile for appending";
 
 &uname;
 &lspci;
