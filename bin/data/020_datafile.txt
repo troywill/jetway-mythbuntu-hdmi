@@ -1,4 +1,4 @@
-Fri Sep 24 10:01:12 PDT 2010
+Fri Sep 24 10:05:15 PDT 2010
 Output from uname -r ................................
 2.6.32-21-generic
 
@@ -11,6 +11,34 @@ Output from sudo aplay -l ................................
 card 1: default [USB PnP Sound Device          ], device 0: USB Audio [USB Audio]
   Subdevices: 1/1
   Subdevice #0: subdevice #0
+
+Output from sudo aplay -L ................................
+null
+    Discard all samples (playback) or generate zero samples (capture)
+default:CARD=default
+    USB PnP Sound Device          , USB Audio
+    Default Audio Device
+front:CARD=default,DEV=0
+    USB PnP Sound Device          , USB Audio
+    Front speakers
+surround40:CARD=default,DEV=0
+    USB PnP Sound Device          , USB Audio
+    4.0 Surround output to Front and Rear speakers
+surround41:CARD=default,DEV=0
+    USB PnP Sound Device          , USB Audio
+    4.1 Surround output to Front, Rear and Subwoofer speakers
+surround50:CARD=default,DEV=0
+    USB PnP Sound Device          , USB Audio
+    5.0 Surround output to Front, Center and Rear speakers
+surround51:CARD=default,DEV=0
+    USB PnP Sound Device          , USB Audio
+    5.1 Surround output to Front, Center, Rear and Subwoofer speakers
+surround71:CARD=default,DEV=0
+    USB PnP Sound Device          , USB Audio
+    7.1 Surround output to Front, Center, Side, Rear and Woofer speakers
+iec958:CARD=default,DEV=0
+    USB PnP Sound Device          , USB Audio
+    IEC958 (S/PDIF) Digital Audio Output
 
 Output from lspci ................................
 00:00.0 Host bridge: Intel Corporation N10 Family DMI Bridge (rev 02)

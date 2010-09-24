@@ -8,6 +8,7 @@ print $datafile `date`;
 &uname;
 &asound;
 &devices;
+&aplayL;
 &lspci;
 &lsmod;
 
@@ -15,6 +16,15 @@ sub asound {
     my $asound = `cat /proc/asound/version`;
     print $datafile "Output from cat /proc/asound/version .........................\n";
     print $datafile $asound, "\n";
+}
+
+
+sub aplayL {
+    # chomp( my $lspci_bin = `which lspci` );
+    # print "------- $lspci_bin ----\n";
+    my $alsa_devices = `sudo aplay -L`;
+    print $datafile "\nOutput from sudo aplay -L ................................\n";
+    print $datafile $alsa_devices;
 }
 
 sub uname {
