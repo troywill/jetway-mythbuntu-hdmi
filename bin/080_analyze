@@ -2,7 +2,7 @@
 use warnings;
 use strict;
 
-open ( my $datafile, '>', 'data/080_datafile.txt' ) or die "Unable to open data/020_datafile for appending";
+open ( my $datafile, '>', 'data/080_datafile.txt' ) or die "Unable to open data/080_datafile for appending";
 print $datafile `date`;
 
 &uname;
