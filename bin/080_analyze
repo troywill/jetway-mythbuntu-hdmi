@@ -1,0 +1,56 @@
+#!/usr/bin/env perl
+use warnings;
+use strict;
+
+open ( my $datafile, '>', 'data/080_datafile.txt' ) or die "Unable to open data/020_datafile for appending";
+print $datafile `date`;
+
+&uname;
+&asound;
+&devices;
+&aplayL;
+&lspci;
+&lsmod;
+
+sub asound {
+    my $asound = `cat /proc/asound/version`;
+    print $datafile "Output from cat /proc/asound/version .........................\n";
+    print $datafile $asound, "\n";
+}
+
+
+sub aplayL {
+    # chomp( my $lspci_bin = `which lspci` );
+    # print "------- $lspci_bin ----\n";
+    my $alsa_devices = `sudo aplay -L`;
+    print $datafile "\nOutput from sudo aplay -L ................................\n";
+    print $datafile $alsa_devices;
+}
+
+sub uname {
+    my $kernel_release = `uname -r`;
+    print $datafile "Output from uname -r ................................\n";
+    print $datafile $kernel_release, "\n";
+}
+
+sub lspci {
+    # chomp( my $lspci_bin = `which lspci` );
+    # print "------- $lspci_bin ----\n";
+    my $lspci = `lspci`;
+    print $datafile "\nOutput from lspci ................................\n";
+    print $datafile $lspci;
+}
+
+sub lsmod {
+    my $lsmod = `lsmod`;
+    print $datafile "\nOutput from lsmod ................................\n";
+    print $datafile $lsmod;
+}
+
+sub devices {
+    # chomp( my $lspci_bin = `which lspci` );
+    # print "------- $lspci_bin ----\n";
+    my $alsa_devices = `sudo aplay -l`;
+    print $datafile "\nOutput from sudo aplay -l ................................\n";
+    print $datafile $alsa_devices;
+}
